@@ -38,7 +38,7 @@ public class AppController {
 	public String saveDetails(Employee employee) {
 		appservice.saveDetails(employee);
 		System.out.println("54");
-		return "products";
+		return "redirect:/details";
 	}
 	
 	@RequestMapping("/detail/{employee_id}")
