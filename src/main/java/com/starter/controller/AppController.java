@@ -20,38 +20,53 @@ public class AppController {
 		this.appservice = appservice;
 	}
 	
-	
-	@RequestMapping("detail/new")
+	@RequestMapping("/addemployee")
 	public String addDetails(Model model) {
 		model.addAttribute("Employee", new Employee());
 		return "regform";
 	}
 	
-	@RequestMapping(value="/details",method=RequestMethod.GET)
+//	@RequestMapping("detail/new")
+//	public String addDetails(Model model) {
+//		model.addAttribute("Employee", new Employee());
+//		return "regform";
+//	}
+//	
+	@RequestMapping(value="/employee",method=RequestMethod.GET)
 	public String list(Model model) {
 		model.addAttribute("Employee", appservice.listDetails());
 		System.out.println("53");
-		return "products";
+		return "employees";
 	}
+	
+	
+
+//	@RequestMapping(value="detail",method=RequestMethod.POST)
+//	public String saveDetails(Employee employee) {
+//		appservice.saveDetails(employee);
+//		System.out.println("54");
+//		return "products";
+//	}
 	
 	@RequestMapping(value="detail",method=RequestMethod.POST)
 	public String saveDetails(Employee employee) {
 		appservice.saveDetails(employee);
 		System.out.println("54");
-		return "redirect:/details";
+		return "index";
 	}
+	
 	
 	@RequestMapping("/detail/{employee_id}")
 	public String employee_Details(@PathVariable Integer employee_id,Model model) {
 		model.addAttribute("Employee", appservice.getDetailById(employee_id));
 		System.out.println("56");
-		return "productshow";
+		return "profile";
 	}
 	
 	@RequestMapping("detail/edit/{employee_id}")
 	public String editDetails(@PathVariable Integer employee_id,Model model) {
 		model.addAttribute("Employee", appservice.getDetailById(employee_id));
-		return "regform";
+		return "Update_prof";
 	}
 	
 	@RequestMapping("detail/delete/{employee_id}")

@@ -26,35 +26,32 @@
     <link rel="stylesheet" href="../static/css/aos.css" th:href="@{/css/aos.css}" media="screen"/>
 
     <link rel="stylesheet" href="../static/css/style.css" th:href="@{/css/style.css}" media="screen"/>
+    
+     <link rel="stylesheet" href="../static/css/paddddding.css" th:href="@{/css/paddddding.css}" media="screen" />
+    
+        <style type="text/css">
       
-   
+      #outer
+            {
+              width:100%;
+              text-align: center;
+              margin-top: 50px;
+
+              
+            
+            }
+      .inner
+        {
+            display: inline-block;
+
+            
+        }
+
+
+    </style>
       
-      <style type="text/css">
-         body {
-         background-color: transparent;
-         background-size: cover;
-         }
-         #ui {
-         background-color: rgba(255, 255, 255, 0.9);
-         padding: 60px;
-         margin-top: 120px;
-         margin-bottom: 80px;
-         border-radius: 10px;
-         width: 700px;
-         box-shadow: 10px 10px 8px 10px #888888;
-         box-align: center;
-         }
-         #ui label {
-         color: #008B8B;
-         }
-         #ui h1 {
-         color: #008080;
-         
-         font-family: Tahoma, Geneva, sans-serif;
-         font-weight: bold;
-         }
-      </style>
-      <title>Registration</title>
+
+      <title>Employees </title>
    </head>
    <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
    <div class="site-wrap">
@@ -110,10 +107,9 @@
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                  <li><a  href="#" th:href="@{/}" class="nav-link">Home</a></li>
                 <li><a href="#about_uss" class="nav-link">About Us</a></li>
-            
-       
-                <li><a href="#" th:href="@{/employee}" class="nav-link">Employees</a></li>
-               <!--  <li><a href="#testimonials-section" class="nav-link">Testimonials</a></li> -->
+              
+               
+               <li><a href="#" th:href="@{/employee}" class="nav-link">Employees</a></li>
                 <li><a href="#" th:href="@{/addemployee}" class="nav-link">Add Employee</a></li>
                 <li><a href="#contact-section" class="nav-link">Contact</a></li>
               </ul>
@@ -130,223 +126,172 @@
    
    
    
-   
-   
-      <div class="container">
-      <div class="row">
-         <div class="col-lg-3"></div>
-         <div class="col-lg-6">
-            <div id="ui">
-               <h1 class="text-center">EMPLOYEE INFORMATION FORM</h1>
-               <br/><br/>
-               <form class="form-group" method="POST" th:object="${Employee}" th:action="@{/detail}" onsubmit="return valid()">
-                  <div class="row">
-                     <div class="col-lg-4">
-                        <label>First Name : </label>
-                        <div class="input-group">
-                           <input type="text" name="fname" id="fname_id" class="form-control"
-                              placeholder="enter first name" th:field="*{first_name}" onkeyup="valid_fname()"/>
-                           <span class="input-group-addon" id="fname_i"></span>
+<div class="container" id="prof_cont">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+
+                    <div class="card-body">
+                        <div class="card-title mb-4">
+                            <div class="d-flex justify-content-start">
+                                <div class="image-container">
+                                    <img src="http://placehold.it/150x150" id="imgProfile" style="width: 150px; height: 150px" class="img-thumbnail" />
+                                    <div class="middle">
+                                        <input type="button" class="btn btn-secondary" id="btnChangePicture" value="Change" />
+                                        <input type="file" style="display: none;" id="profilePicture" name="file" />
+                                    </div>
+                                </div>
+                                <div class="userData ml-3">
+                                    <h2 class="d-block" style="font-size: 1.5rem; font-weight: bold"><a href="javascript:void(0);">Mike Anamendolla</a></h2>
+                                    <h4 class="d-block">Software Engineer</h4>
+                              
+                            </div>
                         </div>
-                        <label>
-                           <div id="fname_v"></div>
-                        </label>
-                     </div>
-                     <div class="col-lg-4">
-                        <label>Last Name : </label>
-                        <div class="input-group">
-                           <input type="text" name="lname" id="lname_id" class="form-control"
-                              placeholder="enter last name" th:field="*{last_name}" onkeyup="valid_lname()"/>
-                           <span class="input-group-addon" id="lname_i"></span>
+
+                        <div class="row">
+                            <div class="col-12">
+                                <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="basicInfo-tab" data-toggle="tab" href="#basicInfo" role="tab" aria-controls="basicInfo" aria-selected="true">Employee Details:</a>
+                                    </li>
+                                    <!-- <li class="nav-item">
+                                        <a class="nav-link" id="connectedServices-tab" data-toggle="tab" href="#fullInfo" role="tab" aria-controls="connectedServices" aria-selected="true">Connected Services</a>
+                                    </li> -->
+                                </ul>
+                                <div class="tab-content ml-1" id="myTabContent">
+                                    <div class="tab-pane fade show active" id="basicInfo" role="tabpanel" aria-labelledby="basicInfo-tab">
+                                        
+
+                                        <div class="row">
+                                            <div class="col-sm-3 col-md-2 col-5">
+                                                <label style="font-weight:bold;">Employee ID</label>
+                                            </div>
+                                            <div class="col-md-8 col-6">
+                                                20003000
+                                            </div>
+                                        </div>
+                                        <hr />
+
+                                        <div class="row">
+                                            <div class="col-sm-3 col-md-2 col-5">
+                                                <label style="font-weight:bold;">Birth Date</label>
+                                            </div>
+                                            <div class="col-md-8 col-6">
+                                                March 22, 1994.
+                                            </div>
+                                        </div>
+                                        <hr />
+                                        
+                                        
+                                        <div class="row">
+                                            <div class="col-sm-3 col-md-2 col-5">
+                                                <label style="font-weight:bold;">Gender</label>
+                                            </div>
+                                            <div class="col-md-8 col-6">
+                                                Male
+                                            </div>
+                                        </div>
+                                        <hr />
+                                        <div class="row">
+                                            <div class="col-sm-3 col-md-2 col-5">
+                                                <label style="font-weight:bold;">Unit</label>
+                                            </div>
+                                            <div class="col-md-8 col-6">
+                                                MFS
+                                            </div>
+                                        </div>
+                                        <hr />
+                                        <div class="row">
+                                            <div class="col-sm-3 col-md-2 col-5">
+                                                <label style="font-weight:bold;">Department</label>
+                                            </div>
+                                            <div class="col-md-8 col-6">
+                                                MFS
+                                            </div>
+                                        </div>
+                                        <hr />
+
+                                           <div class="row">
+                                            <div class="col-sm-3 col-md-2 col-5">
+                                                <label style="font-weight:bold;">Email</label>
+                                            </div>
+                                            <div class="col-md-8 col-6">
+                                                mike@gmail.com
+                                            </div>
+                                        </div>
+                                        <hr />
+
+                                           <div class="row">
+                                            <div class="col-sm-3 col-md-2 col-5">
+                                                <label style="font-weight:bold;">Contact No.</label>
+                                            </div>
+                                            <div class="col-md-8 col-6">
+                                                +919999999999
+                                            </div>
+                                        </div>
+                                        <hr />
+
+                                           <div class="row">
+                                            <div class="col-sm-3 col-md-2 col-5">
+                                                <label style="font-weight:bold;">Address</label>
+                                            </div>
+                                            <div class="col-md-8 col-6">
+                                                Yelahanka, Bangalore.
+                                            </div>
+                                        </div>
+                                        <hr />
+
+                                           <div class="row">
+                                            <div class="col-sm-3 col-md-2 col-5">
+                                                <label style="font-weight:bold;">City</label>
+                                            </div>
+                                            <div class="col-md-8 col-6">
+                                                Bangalore.
+                                            </div>
+                                        </div>
+                                        <hr />
+
+                                           <div class="row">
+                                            <div class="col-sm-3 col-md-2 col-5">
+                                                <label style="font-weight:bold;">PIN Code</label>
+                                            </div>
+                                            <div class="col-md-8 col-6">
+                                                226012
+                                            </div>
+                                        </div>
+                                        <hr />
+
+                                    </div>
+                              
+
+                                <div >
+                                  
+                                   <button><a href="https://www.youtube.com/">Update Profile</a></button>
+                                </div>
+
+
+                                </div>
+                            </div>
                         </div>
-                        <label>
-                           <div id="lname_v"></div>
-                        </label>
-                     </div>
-                     <div class="col-lg-4">
-                        <label>Date of Birth : </label>
-                        <div class="input-group">
-                           <input type="date" name="dob" id="dob_id" class="form-control" th:field="*{dob}"
-                              onchange="valid_dob()"/>
-                           <span class="input-group-addon" id="dob_i"></span>
-                        </div>
-                        <label>
-                           <div id="dob_v"></div>
-                        </label>
-                     </div>
-                  </div>
-                  <br/>     
-                  
-                  <div class="row">
-                     <div class="col-lg-2">
-                        <label>Gender : </label>
-                     
-                     </div>
-                     <div class="col-lg-6">
-                     
-                        <div class="input-group">
-                           <input type="text" name="gender" id="gender_id" class="form-control"
-                              placeholder="Enter Male or Female" th:field="*{sex}" onkeyup="valid_gender()"/>
-                           <span class="input-group-addon" id="gender_i"></span>
-                        </div>
-                        
-                     </div>
-                     <div class="col-lg-4">
-                     	<label>
-                           <div id="gender_v"></div>
-                        </label>
-                     </div>
-                  
-                  
-                  </div>
-                  
-                  
-                  <br/><br/>
-                  
-                  
-                  
-                  <div class="row">
-                     <div class="col-lg-4">
-                        <label>Employee ID : </label>
-                        <div class="input-group">
-                           <input type="text" name="eid" id="eid_id" class="form-control"
-                              placeholder="enter employee id" th:field="*{employee_id}" onkeyup="valid_eid()"/>
-                           <span class="input-group-addon" id="eid_i"></span>
-                        </div>
-                        <label>
-                           <div id="eid_v"></div>
-                        </label>
-                     </div>
-                     <div class="col-lg-4">
-                        <label>Unit : </label>
-                        <div class="input-group">
-                           <input type="text" name="unit" id="unit_id" class="form-control"
-                              placeholder="enter unit" th:field="*{unit}" onkeyup="valid_unit()"/>
-                           <span class="input-group-addon" id="unit_i"></span>
-                        </div>
-                        <label>
-                           <div id="unit_v"></div>
-                        </label>
-                     </div>
-                     <div class="col-lg-4">
-                        <label>Branch : </label>
-                        <div class="input-group">
-                           <!--	<input type="text" name="branch" id="branch_id" class="form-control" placeholder="enter branch"/> -->
-                         <!--  <select name="branch" id="branch_id" class="form-control" onchange="valid_branch()">
-                              <option selected="" value="default">(select branch)</option>
-                              <option value="Delhi">Delhi</option>
-                              <option value="Mumbai">Mumbai</option>
-                              <option value="Chennai">Chennai</option>
-                              <option value="Kolkata">Kolkata</option>
-                              <option value="Durgapur">Durgapur</option>
-                              <option value="Bangalore">Bangalore</option>
-                              <option value="Gurgaon">Gurgaon</option>
-                           </select> -->
-                             <input type="text" name="branch" id="branch_id" class="form-control"
-                              placeholder="enter branch" th:field="*{department}" onkeyup="valid_branch()"/>
-                           <span class="input-group-addon" id="branch_i"></span>
-                        </div>
-                        <label>
-                           <div id="branch_v"></div>
-                        </label>
-                     </div>
-                  </div>
-                  <br/>
-                  <div class="row">
-                     <div class="col-lg-6">
-                        <label>Email</label>
-                        <div class="input-group">
-                           <input type="text" name="email" id="email_id" class="form-control"
-                              placeholder="enter your email" th:field="*{email}" onkeyup="valid_email()"/>
-                           <span class="input-group-addon" id="email_i"></span>
-                        </div>
-                        <label>
-                           <div id="email_v"></div>
-                        </label>
-                     </div>
-                     <div class="col-lg-6">
-                        <label>Designation</label>
-                        <div class="input-group">
-                           <input type="text" name="desg" id="desg_id" class="form-control"
-                              placeholder="enter your designation" th:field="*{designation}" onkeyup="valid_des()"/>
-                           <span class="input-group-addon" id="desg_i"></span>
-                        </div>
-                        <label>
-                           <div id="desg_v"></div>
-                        </label>
-                     </div>
-                  </div>
-                  <br/>
-                  <div class="row">
-                     <div class="col-lg-6">
-                        <label>Contact no. : </label>
-                        <div class="input-group">
-                           <input type="text" name="contact" id="contact_id" class="form-control"
-                              placeholder="enter mobile no." th:field="*{contact_number}" onkeyup="valid_contact()"/>
-                           <span class="input-group-addon" id="contact_i"></span>
-                        </div>
-                        <label>
-                           <div id="contact_v"></div>
-                        </label>
-                     </div>
-              
-                        </div>
-                     <div class="row">
-                        <div class="col-lg-12">
-                           <label>Address</label>
-                           <textarea class="form-control" rows="2" id="add" th:field="*{address}" onkeyup="valid_add()"></textarea>
-                        </div>
-                     </div>
-                     <div class="row">
-                        <div class="col-lg-12">
-                           <label>
-                              <div id="add_v"></div>
-                           </label>
-                        </div>
-                     </div>
-                     <br/>
-                     <div class="row">
-                        <div class="col-lg-6">
-                           <label>City : </label>
-                           <div class="input-group">
-                              <input type="text" name="city" id="city_id" class="form-control"
-                                 placeholder="enter city" th:field="*{city}" onkeyup="valid_city()"/>
-                              <span class="input-group-addon" id="city_i"></span>
-                           </div>
-                           <label>
-                              <div id="city_v"></div>
-                           </label>
-                        </div>
-                        <div class="col-lg-6">
-                           <label>Pin : </label>
-                           <div class="input-group">
-                              <input type="text" name="pin" id="pin_id" class="form-control"
-                                 placeholder="enter pin" th:field="*{pin}" onkeyup="valid_pin()"/>
-                              <span class="input-group-addon" id="pin_i"></span>
-                           </div>
-                           <label>
-                              <div id="pin_v"></div>
-                           </label>
-                        </div>
-                     </div>
-                     <br/>
-                     <div class="row">
-                        <div class="col-lg-12">
-                           <input type="submit" name="submit" value="submit" class="btn btn-primary btn-block btn-lg"/>
-                        </div>
-                     </div>
-               </form>
-               </div>
+
+
+                    </div>
+
+                </div>
             </div>
-            <div class="col-lg-3"></div>
-         </div>
-      </div>
-      
-      
-      
-      
-      
-    <section class="site-section bg-light" id="contact-section">
+        </div>
+    </div>
+
+
+
+
+
+</div>
+
+   
+   
+   
+   <section class="site-section bg-light" id="contact-section">
       <div class="container">
         <div class="row mb-5">
           <div class="col-12 text-center">
@@ -486,8 +431,8 @@
         </div>
       </div>
     </footer>
-      
-      
+   
+  
 </div>
 
 
